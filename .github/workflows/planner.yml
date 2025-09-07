@@ -1,0 +1,28 @@
+name: Create Planner Issues
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - ".github/workflows/planner.yml"
+      - "tools/create-github-issues.mjs"
+      - "AGENTS.md"
+  workflow_dispatch: {}
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Create labels, milestones, and issues
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # owner/repo auto-detected from GITHUB_REPOSITORY by the script
+        run: node tools/create-github-issues.mjs
+

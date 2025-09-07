@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base typography tweaks */
+html { scroll-behavior: smooth; }
+* { outline-offset: 2px; }
+

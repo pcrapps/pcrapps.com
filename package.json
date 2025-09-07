@@ -1,0 +1,13 @@
+{
+  "name": "patrickcrapps",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "export": "next export",
+    "start": "serve out",
+    "plan:create-issues": "node tools/create-github-issues.mjs"
+  }
+}
